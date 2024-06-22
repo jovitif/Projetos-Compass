@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter Texto em Áudio</title>
+</head>
+<body>
+    <h1>Converta seu texto para áudio aqui:</h1>
+    <form id="formularioTextoAudio">
+        <label for="frase">Digite sua frase:</label><br>
+        <textarea id="frase" name="frase" rows="4" cols="50"></textarea><br><br>
+        <label for="versaoApi">Selecione a Rota:</label>
+        <select id="versaoApi" name="versaoApi">
+            <option value="v1">/v1/tts</option>
+            <option value="v2">/v2/tts</option>
+            <option value="v3">/v3/tts</option>
+        </select><br><br>
+        <button type="button" onclick="converterParaAudio()">Converter para Áudio</button>
+    </form>
+
+    <div id="reprodutorAudio" style="display: none;">
+        <h2>Áudio Gerado:</h2>
+        <audio controls id="elementoAudio">
+            <source id="fonteAudio" type="audio/mpeg">
+            <p>Seu navegador não suporta esse formato de áudio</p>
+        </audio>
+    </div>
+
+    <script>
+        async function converterParaAudio() {
+            try {
+                const frase = document.getElementById("frase").value;
+                const versaoApi = document.getElementById("versaoApi").value;
+
+                const response = await fetch('/converter', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ frase, versaoApi })
+                });
+
+                if (!response.ok) {
+                    console.log(response);
+                    throw new Error('Erro ao converter texto em áudio');
+                }
+
+                const responseData = await response.json();
+                const urlAudio = responseData.url_to_audio;
+
+                const elementoAudio = document.getElementById("elementoAudio");
+                const fonteAudio = document.getElementById("fonteAudio");
+
+                fonteAudio.src = urlAudio;
+                elementoAudio.load();
+                elementoAudio.play();
+
+                const reprodutorAudio = document.getElementById("reprodutorAudio");
+                reprodutorAudio.style.display = "block";
+            } catch (error) {
+                console.error(error);
+                alert('Erro ao converter texto em áudio. Por favor, tente novamente mais tarde.');
+            }
+        }
+    </script>
+</body>
+</html>
