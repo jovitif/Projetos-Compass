@@ -1,0 +1,110 @@
+body {
+	background: #e7f3fd;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	justify-content: center;
+	align-items: center;
+	font-family: Helvetica, sans-serif;
+}
+
+
+select {
+	padding: 1.5rem 2rem;
+	border-radius: 3rem;
+	border: 1px solid #9e9e9e;
+	font-size: 1.5rem;
+	margin-bottom: 2rem
+}
+
+label {
+	font-size: 1.4rem;
+	margin-bottom: 0.5rem;
+	margin-left: 1rem;
+}
+
+h1 {
+	font-size: 2.5rem;
+	text-align: center;
+	margin: 2rem 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	margin-top: 1rem;
+	background-color: white;
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 2rem;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}
+form > h2 {
+	color: rgb(74, 74, 119);
+	font-weight: 500;
+	font-size: 1.75rem;
+	margin-top: 0.5rem;
+}
+
+input[type=submit], button {
+	background-color: rgb(46, 140, 255);
+	border: 1px solid rgb(16, 120, 255);
+	border-radius: 3rem;
+	padding: 1.5rem 2rem;
+	color: white;
+	font-size: 1.4rem;
+	transition: background-color 0.1s;
+}
+
+input[type=submit]:hover, button:hover {
+	background-color: rgb(23, 101, 196);
+}
+
+#errorMessage {
+	padding: 1.5rem;
+	background-color: rgb(249, 195, 195);
+	border-radius: 0.5rem;
+	color: rgb(64, 10, 10);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+	width: fit-content;
+	font-size: 1.25rem;
+}
+
+#content {
+	display: flex;
+	flex-direction: column;
+}
+
+#forecastCard { 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 2rem;
+	padding: 2rem 1rem;
+	gap: 3rem;
+	margin-top: 3rem;
+	margin-bottom: 5rem;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}
+#forecastCard > #weatherIcon {
+	font-size: 10rem;
+}
+#forecastCard > #temperature {
+	font-size: 4rem;
+	font-weight: 500;
+}
+#forecastCard > h1 {
+	font-size: 2rem;
+	font-weight: 400;
+}
+#forecastCard > #weatherStatus {
+	font-size: 1.25rem;
+}

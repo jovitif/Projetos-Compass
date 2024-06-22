@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estados e Cidades</title>
+    <link href="/static/css/style.css" rel="stylesheet"> <!-- Referencia arq. CSS-->
+</head>
+
+<body>
+
+    <main id="content">
+        <h1>Previsão do tempo</h1>
+        
+        <form onsubmit="submitForm(event)">
+            <h2>Selecione seu estado e sua cidade</h2>
+            
+            <label for="statesSelect">Estados:</label>
+            <select id="statesSelect" onchange="updateCities()">
+                <option value="">Selecione um estado</option>
+            </select>
+
+            <label for="citiesSelect">Cidades:</label>
+            <select id="citiesSelect">
+                <option value="">Selecione um estado primeiro</option>
+            </select>
+            
+            <input type="submit" value="Continuar">
+            <p id="errorMessage" hidden></p>
+        </form>
+        
+        <div id="forecastCard" style="display: none;">
+            <h1 id="cityName"></h1>
+            <span id="weatherIcon"></span>
+            <span id="temperature"></span>
+            <span id="weatherStatus"></span>
+        </div>
+
+    </main>
+    
+    <script src="/static/js/index.js"></script>
+</body>
+
+</html>
