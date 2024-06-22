@@ -1,0 +1,57 @@
+service: lostanimals-requirements
+frameworkVersion: '4.0.38'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: false
+
+
+provider:
+  name: aws
+  runtime: python3.12
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+          - lex:PostText
+          - lex:PostContent
+          - lex:RecognizeText
+          - lex:GetSession
+          - Transcribe:StartTranscriptionJob
+          - Transcribe:GetTranscriptionJob
+          - s3:*
+          - lambda:InvokeFunction
+          - lambda:UpdateFunctionConfiguration  
+          Resource: "*"
+
+package:
+  individually: true
+
+functions:
+  orchestrator:
+    handler: Controllers.orchestrator.Orchestrator
+    timeout: 40
+    package:
+      patterns:
+        - 'Controllers/**'
+        - 'package/**'
+        - 'requirements.txt'
+        - '!Controllers/transcribeController.py'
+  transcribeController:
+    handler: Controllers.transcribeController.TranscribeController
+    timeout: 120
+    package:
+      patterns:
+        - '!Controllers/**'
+        - '!lambdas-requires/**'
+        - '!handler.py'
+        - 'requirements.txt'
+        - 'Controllers/transcribeController.py'
+  
+    
+      

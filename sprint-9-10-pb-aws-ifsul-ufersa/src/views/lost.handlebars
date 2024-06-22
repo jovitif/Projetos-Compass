@@ -1,0 +1,8 @@
+<div class="container">
+    {{#each lost_animals}}
+        <div class="animal-card {{containsDog caracteristicas}}" onclick="location.href='/animal/{{telefone}}?categoria={{categoria}}&imageurl={{imageurl}}'">
+            <img src="{{imageurl}}" alt="{{caracteristicas.[2]}}">
+            <p>{{caracteristicas.[2]}}<br>{{endereco}}</p>
+        </div>
+    {{/each}}
+</div>

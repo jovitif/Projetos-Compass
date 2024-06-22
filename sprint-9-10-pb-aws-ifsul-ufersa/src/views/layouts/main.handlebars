@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animais Encontrados e Perdidos</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+    {{!-- <script type="module" src="app.js" defer></script> --}}
+    <script>
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="/assets/paws.png" alt="Paws">
+    </div>
+
+    <div class="tabs">
+        <div class="tabs">
+            <button class="{{#if foundActive}}active{{/if}}" 
+            onclick="redirectTo('/encontrados')">
+                Animais Encontrados
+            </button>
+            <button class="{{#unless foundActive}}active{{/unless}}" 
+            onclick="redirectTo('/perdidos')">
+                Animais Perdidos
+            </button>
+        </div>
+    </div>
+
+    <hr>
+
+    {{#unless isDetailPage}}
+    <div class="filter">
+        <select>
+            <option value="">Filtro</option>
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
+        </select>
+    </div>
+    {{/unless}}
+
+    {{{body}}}
+
+    <div class="whatsapp">
+        <button class="whatsapp-button" onclick="window.location.href='https://wa.me/{{phoneNumber}}'">
+            <img src="/assets/whatsapp.png" alt="WhatsApp">
+        </button>
+        <p>Para reportar um animal perdido ou encontrado entre em contato pelo WhatsApp</p>
+    </div>
+
+    <script src="/filter.js"></script>
+
+</body>
+
+</html>

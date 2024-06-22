@@ -1,0 +1,7 @@
+aws_region          = ""
+vpc_cidr            = ""
+key_pair_name       = ""
+public_key_path     = ""
+github_token        = ""
+github_association  = ""
+github_repo         = ""

@@ -1,0 +1,20 @@
+{
+  "name": "datahandler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1628.0",
+    "express": "^4.19.2",
+    "serverless": "^4.0.24",
+    "serverless-esbuild": "^1.52.1",
+    "serverless-http": "^3.2.0"
+  }
+}

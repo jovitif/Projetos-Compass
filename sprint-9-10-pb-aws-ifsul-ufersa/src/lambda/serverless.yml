@@ -1,0 +1,76 @@
+service: lostanimals
+frameworkVersion: '4.0.38'
+
+plugins:
+  - serverless-dotenv-plugin
+
+
+provider:
+  name: aws
+  runtime: python3.12
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+          - Rekognition:DetectLabels
+          - bedrock:InvokeModel
+          - s3:*
+          - lambda:InvokeFunction
+          - lambda:UpdateFunctionConfiguration  
+          - dynamodb:Get*
+          - dynamodb:PutItem
+          Resource: "*"
+  httpApi:
+    cors: true
+
+package:
+  individually: true
+
+functions:
+  connector:
+    handler: Controllers.twilioConnector.connector
+    timeout: 30
+    package:
+      patterns:
+        - '!Controllers/**'
+        - '!lambdas-requires/**'
+        - '!handler.py'
+        - '!requirements.txt'
+        - 'Controllers/twilioConnector.py'
+    events:
+      - httpApi:
+          path: /connector
+          method: post
+  rekognitionController:
+    handler: Controllers.rekognitionController.RekognitionController
+    package:
+      patterns:
+        - '!Controllers/**'
+        - '!lambdas-requires/**'
+        - '!handler.py'
+        - '!requirements.txt'
+        - 'Controllers/rekognitionController.py'
+  dynamoController:
+    handler: Controllers.dynamoController.DynamoController
+    timeout: 25
+    package:
+      patterns:
+        - '!Controllers/**'
+        - '!lambdas-requires/**'
+        - '!handler.py'
+        - '!requirements.txt'
+        - 'Controllers/dynamoController.py'
+  bedrockController:
+    handler: Controllers.bedrockController.BedrockController
+    timeout: 25
+    package:
+      patterns:
+        - '!Controllers/**'
+        - '!lambdas-requires/**'
+        - '!handler.py'
+        - '!requirements.txt'
+        - 'Controllers/bedrockController.py'
+  
+    
+      

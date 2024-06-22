@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dfffd6;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(182,254,183,1);
+}
+.header img {
+    width: 200px;
+    height: 200px;
+    margin: 0 10px;
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.tabs button {
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.tabs button:not(:last-child) {
+    border-right: 1px solid white;
+}
+.tabs button.active {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}  
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 100px 30px 100px;
+}
+hr {
+    border-color: #aaa;
+    box-sizing: border-box;
+    width: 90%;  
+}
+.animal-card {
+    background-color: #efffec;
+    border-radius: 10px;
+    margin: 15px; /* Margin between cards */
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+    height: 300px;
+}       
+.animal-card:hover {
+    transform: scale(1.05); 
+}
+.animal-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+.animal-card p {
+    margin: 10px;
+    font-size: large;
+}
+.filter {
+    text-align: right;
+    margin: 60px 120px 30px 30px;
+}
+.filter select {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+.whatsapp {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.whatsapp-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.whatsapp img {
+    width: 80px;
+    height: 80px;
+}
+
+.whatsapp p {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-size: 15px;
+    width: 150px;
+}
+.container-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 100px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+.animal-details {
+    background-color: #efffec;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 1000px;
+    height: auto; 
+    margin: 20px;
+} 
+.animal-details img {
+    width: auto;
+    height: 300px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+.animal-details p {
+    margin: 10px;
+    font-size: large;
+}
