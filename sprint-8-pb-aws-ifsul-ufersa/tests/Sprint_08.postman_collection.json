@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "c135bc01-2ef4-43c6-9b0a-d6a95cb1223e",
+		"name": "Sprint_08",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32642517"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "v1",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "v2",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "v1/vision",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bucket\": \"myphotos\", \r\n   \"imageName\": \"test-happy.jpg\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://uc06urph01.execute-api.us-east-1.amazonaws.com/v1/vision",
+					"protocol": "https",
+					"host": [
+						"uc06urph01",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"v1",
+						"vision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/vision",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"oi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://uc06urph01.execute-api.us-east-1.amazonaws.com/v2/vision",
+					"protocol": "https",
+					"host": [
+						"uc06urph01",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"v2",
+						"vision"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
