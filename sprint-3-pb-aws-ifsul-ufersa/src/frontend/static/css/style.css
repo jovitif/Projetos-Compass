@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000; 
+    color: #eaeaea; 
+    text-align: center;
+    position: relative;
+    overflow-y: auto; 
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+    background: #000 url('path/to/your/stars-background.jpg') repeat;
+}
+
+h1 {
+    font-size: 3em;
+    color: #97CE4C;
+    margin: 0.5em 0;
+}
+
+h2 {
+    font-size: 2em;
+    color: #97CE4C;
+    margin: 0.5em 0;
+}
+
+
+#characters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.character {
+    background-color: #ececec;
+    color: #333; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    width: calc(20% - 20px);
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.character:hover {
+    transform: scale(1.05); 
+}
+
+.character img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+button {
+    background-color: #57a64a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #405d9b; 
+}
+
+#searchInput {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #57a64a;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #405d9b; 
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    #searchInput, .character {
+        width: 80%; 
+    }
+}
+
+
