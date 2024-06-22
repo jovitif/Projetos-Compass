@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinha o Número!</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/cadeado.png" type="image/x-icon">
+    <script src="../js/index.js"></script>
+</head>
+<body onload="init()">
+    <h1>Avaliação Sprint 1 - Programa de Bolsas Compass UOL / AWS e IFSUL/UFERSA</h1>
+    <main>
+        <section>
+            <h2>Instrução: </h2>
+            <ul>
+                <li>Digite um número válido</li>
+                <li>Digite um número de no mínimo quatro dígitos</li>
+            </ul>
+            <input onchange="compararNumeros()" type="number" name="num" id="num">
+        </section>
+        <section class="painel">
+            <section>
+                <span id="span"></span>
+                <p id="result"></p>
+            </section>
+           <section>
+            <p>Quantidade de tentativas: <span id="tentativas"></span></p>
+            <p>Números digitados: <span id="guesses"></span></p>
+            <button onclick="novoJogo()">PLAY</button>
+           </section>
+        </section>
+    </main>
+
+
+
+</body>
+</html>
